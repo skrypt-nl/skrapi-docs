@@ -1,0 +1,243 @@
+.header-anchor {
+    @apply text-sky-500;
+    opacity: 0;
+    box-shadow: none;
+    transition: all 100ms ease-in-out;
+    font-weight: 500;
+}
+
+.prose h2:hover .header-anchor {
+    opacity: 1;
+}
+
+.prose :not(pre) > code {
+    @apply bg-slate-100 text-slate-500 font-mono border border-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700;
+    font-weight: 500;
+    border-radius: 4px;
+    padding: 3px 6px;
+    transition: color .5s,background-color .5s;
+}
+
+.prose :not(pre) > code::after,
+.prose :not(pre) > code::before {
+    content: none;
+}
+
+/**
+ * Code
+ * -------------------------------------------------------------------------- */
+
+.prose :not(pre) > code {
+    border-radius: 4px;
+    padding: 3px 6px;
+    transition: color 0.5s, background-color 0.5s;
+}
+
+.prose h1 > code,
+.prose h2 > code,
+.prose h3 > code {
+    font-size: 0.9em;
+}
+
+.prose a > code {
+    transition: color 0.25s;
+}
+
+.prose a:hover > code {
+}
+
+.prose div[class*='language-'] {
+    position: relative;
+    margin: 16px -24px;
+    overflow-x: auto;
+    transition: background-color 0.5s;
+}
+
+@media (min-width: 640px) {
+    .prose div[class*='language-'] {
+        border-radius: 8px;
+        margin: 16px 0;
+    }
+}
+
+@media (max-width: 639px) {
+    .prose li div[class*='language-'] {
+        border-radius: 8px 0 0 8px;
+    }
+}
+
+.prose div[class*='language-'] + div[class*='language-'],
+.prose div[class$='-api'] + div[class*='language-'],
+.prose div[class*='language-'] + div[class$='-api'] > div[class*='language-'] {
+    margin-top: -8px;
+}
+
+.prose [class*='language-'] pre,
+.prose [class*='language-'] code {
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+.prose [class*='language-'] pre {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 16px 0;
+    overflow-x: auto;
+}
+
+.prose [class*='language-'] code {
+    display: block;
+    padding: 0 24px;
+    width: fit-content;
+    min-width: 100%;
+    transition: color 0.5s;
+}
+
+.prose [class*='language-'] code .highlighted {
+    transition: background-color 0.5s;
+    margin: 0 -24px;
+    padding: 0 24px;
+    width: calc(100% + 2 * 24px);
+    display: inline-block;
+}
+
+.prose [class*='language-'] code .diff {
+    transition: background-color 0.5s;
+    margin: 0 -24px;
+    padding: 0 24px;
+    width: calc(100% + 2 * 24px);
+    display: inline-block;
+}
+
+.prose [class*='language-'] code .diff::before {
+    position: absolute;
+    left: 1rem;
+}
+
+.prose [class*='language-'] .has-focused-lines .line:not(.has-focus) {
+    filter: blur(0.095rem);
+    opacity: 0.4;
+    transition: filter 0.35s, opacity 0.35s;
+}
+
+.prose [class*='language-'] .has-focused-lines .line:not(.has-focus) {
+    opacity: 0.7;
+    transition: filter 0.35s, opacity 0.35s;
+}
+
+.prose [class*='language-']:hover .has-focused-lines .line:not(.has-focus) {
+    filter: blur(0);
+    opacity: 1;
+}
+
+.prose [class*='language-'] code .diff.remove {
+    opacity: 0.7;
+}
+
+.prose [class*='language-'] code .diff.remove::before {
+    content: '-';
+}
+
+.prose [class*='language-'] code .diff.add {
+}
+
+.prose [class*='language-'] code .diff.add::before {
+    content: '+';
+}
+
+.prose div[class*='language-'].line-numbers-mode {
+    padding-left: 32px;
+}
+
+.prose .line-numbers-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    padding-top: 16px;
+    width: 32px;
+    text-align: center;
+    transition: border-color 0.5s, color 0.5s;
+}
+
+.prose [class*='language-'] > button.copy {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 3;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' height='20' width='20' stroke='rgba(103, 110, 149, 1)' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2'/%3E%3C/svg%3E");
+    background-position: 50%;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    transition: opacity 0.4s;
+}
+
+.prose [class*='language-']:hover > button.copy,
+.prose [class*='language-'] > button.copy:focus {
+    opacity: 1;
+}
+
+.prose [class*="language-"] > button.copy:hover {
+    @apply bg-slate-800;
+}
+
+.prose [class*='language-'] > button.copy.copied,
+.prose [class*='language-'] > button.copy:hover.copied {
+    @apply bg-slate-800;
+    border-radius: 0 4px 4px 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' height='20' width='20' stroke='rgba(103, 110, 149, 1)' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-6 9 2 2 4-4'/%3E%3C/svg%3E");
+}
+
+.prose [class*='language-'] > button.copy.copied::before,
+.prose [class*='language-'] > button.copy:hover.copied::before {
+    @apply bg-slate-800;
+    color: rgba(103, 110, 149, 1);
+    position: relative;
+    left: -65px;
+    display: block;
+    border-radius: 4px 0 0 4px;
+    padding-top: 8px;
+    width: 64px;
+    height: 40px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    content: 'Copied';
+}
+
+.prose [class*='language-'] > span.lang {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    z-index: 2;
+    font-size: 12px;
+    font-weight: 600;
+    transition: color 0.4s, opacity 0.4s;
+    color: rgba(103, 110, 149, 1);
+}
+
+.prose [class*='language-']:hover > button.copy + span.lang,
+.prose [class*='language-'] > button.copy:focus + span.lang {
+    opacity: 0;
+}

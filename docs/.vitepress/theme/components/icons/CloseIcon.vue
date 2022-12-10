@@ -1,0 +1,17 @@
+<template>
+  <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke-width="2"
+      stroke-linecap="round"
+  >
+    <path d="M5 5l14 14M19 5l-14 14" />
+  </svg>
+</template>
+
+<script>
+export default {
+  name: "CloseIcon"
+}
+</script>
